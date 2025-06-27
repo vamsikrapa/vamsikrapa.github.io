@@ -1,10 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Welcome to krapa Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vamsi Krapa | Personal Site</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f0f0f;
+      color: #f0f0f0;
+      line-height: 1.6;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #00ffff, #ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: pulse 2s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { transform: scale(1); opacity: 1; }
+      to { transform: scale(1.03); opacity: 0.8; }
+    }
+
+    p.subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #aaa;
+    }
+
+    .btn {
+      background: #1f1f1f;
+      border: 1px solid #444;
+      padding: 10px 20px;
+      border-radius: 8px;
+      color: #fff;
+      text-decoration: none;
+      margin: 10px;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #333;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.8rem;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello, World! 🌍</h1>
-  <p>This is my new GitHub Pages site. It's working!</p>
+  <div class="container">
+    <h1>Vamsi Krapa</h1>
+    <p class="subtitle">Engineer. Dreamer. Code whisperer.</p>
+
+    <a class="btn" href="mailto:saisrivamsikrapa@skema.edu">📧 Email Me</a>
+    <a class="btn" href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank">🔗 LinkedIn</a>
+    <a class="btn" href="https://github.com/vamsikrapa" target="_blank">💻 GitHub</a>
+
+    <footer>
+      <p>&copy; 2025 Vamsi Krapa. Built with 🧠 + ☕</p>
+    </footer>
+  </div>
 </body>
 </html>
