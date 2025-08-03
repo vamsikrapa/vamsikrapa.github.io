@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects | Vamsi Krapa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --accent: #00bfa6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: var(--bg);
+      border-bottom: 1px solid #eee;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: flex-start;
+      z-index: 1000;
+    }
+
+    header a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 1rem;
+      border: 1px solid var(--accent);
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: 0.2s ease;
+    }
+
+    header a:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    main {
+      padding: 100px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .project {
+      margin-bottom: 40px;
+      padding: 20px;
+      border-left: 4px solid var(--accent);
+      background: #f9f9f9;
+      border-radius: 6px;
+    }
+
+    .project h2 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    .project p {
+      margin-bottom: 6px;
+    }
+
+    .tags {
+      font-size: 0.9rem;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html">← Back to Home</a>
+  </header>
+
+  <main>
+    <h1>Featured Projects</h1>
+
+    <div class="project">
+      <h2>Audience Segmentation Optimization</h2>
+      <p>Resolved segmentation challenges caused by overlapping profiles by restructuring workflows in Tealium AudienceStream. This boosted retargeting performance and improved engagement rates by 10%.</p>
+      <p class="tags">Tealium • AudienceStream • Workflow Optimization</p>
+    </div>
+
+    <div class="project">
+      <h2>Next Best Action Campaign Execution</h2>
+      <p>Designed and executed personalized digital campaigns integrating NBA (Next Best Action) strategies using CDPs. Achieved significant growth in European market engagement and conversions.</p>
+      <p class="tags">Personalization • CDPs • Campaign Management</p>
+    </div>
+
+    <div class="project">
+      <h2>Real-Time Data Pipeline Enablement</h2>
+      <p>Identified inefficiencies in global data integration and built custom connectors on Tealium, upgrading the Global Datahub. Enabled real-time data visualizations, supporting better marketing decisions.</p>
+      <p class="tags">Tealium • Datahub • Custom Connectors • Real-Time Analytics</p>
+    </div>
+  </main>
+
+</body>
+</html>
