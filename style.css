@@ -1,4 +1,4 @@
-/* === Base Styles === */ :root { --bg-light: #ffffff; --text-light: #111111; --accent-light: #00bfa6; --bg-dark: #111111; --text-dark: #ffffff; --accent-dark: #00bfa6;
+/* === Base  Styles === */ :root { --bg-light: #ffffff; --text-light: #111111; --accent-light: #00bfa6; --bg-dark: #111111; --text-dark: #ffffff; --accent-dark: #00bfa6;
 
 --bg: var(--bg-light); --text: var(--text-light); --accent: var(--accent-light); }
 
