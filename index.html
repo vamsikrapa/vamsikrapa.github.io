@@ -4,105 +4,165 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vamsi Krapa | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #00bfa6;
+      --text: #111;
+      --bg: #fff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: white;
+      border-bottom: 1px solid #eee;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      z-index: 1000;
+    }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+    }
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 100px 20px 60px;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      margin: 10px 0;
+    }
+    .buttons a {
+      display: inline-block;
+      margin: 10px 10px 0 0;
+      padding: 10px 18px;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .buttons a:hover {
+      background: var(--accent);
+      color: white;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+    }
+    .card, .testimonial {
+      background: #f9f9f9;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+    }
+    footer {
+      text-align: center;
+      padding: 40px 10px;
+      font-size: 0.9rem;
+      color: gray;
+    }
+  </style>
 </head>
 <body>
-  <header class="navbar">
-    <div class="logo">Vamsi Krapa</div>
+  <header>
+    <strong>Vamsi Krapa</strong>
     <nav>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
       <a href="#testimonials">Testimonials</a>
       <a href="#publications">Publications</a>
       <a href="#contact">Contact</a>
-      <button id="theme-toggle">🌙</button>
     </nav>
   </header>
 
   <section class="hero" id="home">
-    <h1>Building digital products with <span class="highlight">impact</span> and <span class="highlight">purpose</span>.</h1>
-    <p>I’m Vamsi Krapa, a tech-driven strategist turned project manager blending software development roots with leadership in marketing automation and omnichannel execution.</p>
-    <div class="hero-buttons">
-      <a href="#projects" class="btn">View Projects</a>
-      <a href="#contact" class="btn-outline">Contact Me</a>
+    <h1>Building digital products with <span style="color: var(--accent);">impact</span> and <span style="color: var(--accent);">purpose</span>.</h1>
+    <p>I'm Vamsi Krapa, a tech-driven strategist turned project manager blending software development roots with leadership in marketing automation and omnichannel execution.</p>
+    <div class="buttons">
+      <a href="#projects">View Projects</a>
+      <a href="#contact">Contact Me</a>
     </div>
-    <div class="stats">
-      <div>10K+ Users Impacted</div>
-      <div>4 Years Experience</div>
-      <div>1 Major Launch</div>
-    </div>
+    <p style="margin-top: 20px; color: gray; font-size: 0.95rem;">10K+ Users Impacted &bull; 4 Years Experience &bull; 1 Major Launch</p>
   </section>
 
-  <section id="about" class="section">
+  <section id="about">
     <h2>About Me</h2>
     <p>With a foundation in software engineering and a passion for digital transformation, I transitioned into project and product management. My expertise bridges the gap between marketing, development, and data strategy. Currently completing my MSc at SKEMA Business School.</p>
-    <ul class="timeline">
-      <li><strong>2025:</strong> MSc Student, SKEMA</li>
-      <li><strong>2022–2024:</strong> Project Manager – Omnichannel & CDP, Indegene</li>
-      <li><strong>2020–2022:</strong> Omni Channel Developer, Cognizant</li>
-      <li><strong>2020:</strong> B.E. Computer Science, Sathyabama</li>
-      <li><strong>2019:</strong> Research Publication, IJRTE</li>
-    </ul>
   </section>
 
-  <section id="projects" class="section">
-    <h2>Projects</h2>
-    <div class="project-card">
-      <h3>Tealium Segmentation Optimization</h3>
-      <p>Resolved segmentation overlaps in Tealium AudienceStream to boost engagement. Improved retargeting performance by 10%.</p>
-      <span class="tag">Tealium</span><span class="tag">AudienceStream</span><span class="tag">Campaign Strategy</span>
+  <section id="projects">
+    <h2>Experience</h2>
+    <div class="card">
+      <strong>Tealium Segmentation Optimization</strong><br/>
+      <small>CDP Consultant</small>
+      <p>Resolved segmentation overlaps in Tealium AudienceStream to boost engagement. Collaborated across teams and improved retargeting performance by 10%.</p>
     </div>
-    <div class="project-card">
-      <h3>Next Best Action Campaigns</h3>
+    <div class="card">
+      <strong>Next Best Action Campaigns</strong><br/>
+      <small>Project Manager</small>
       <p>Integrated NBA personalization into campaigns using CDPs. Helped scale engagement across key EU markets.</p>
-      <span class="tag">CDPs</span><span class="tag">Personalization</span><span class="tag">Omnichannel</span>
     </div>
-    <div class="project-card">
-      <h3>Global Datahub Integration</h3>
+    <div class="card">
+      <strong>Global Datahub Integration</strong><br/>
+      <small>Team Lead</small>
       <p>Developed custom connectors on Tealium, enabling real-time dashboards and faster business insights.</p>
-      <span class="tag">Data Engineering</span><span class="tag">Tealium</span><span class="tag">Visualization</span>
     </div>
   </section>
 
-  <section id="testimonials" class="section">
+  <section id="testimonials">
     <h2>Testimonials</h2>
-    <blockquote>
-      “Vamsi is a highly talented professional... one of the most reliable engineers on the team.”<br>
-      <cite>– Mihai Milea, Indegene</cite>
-    </blockquote>
-    <blockquote>
-      “Exceptional results in high-stakes projects... invaluable asset.”<br>
-      <cite>– Prakhar Dikshit, Indegene</cite>
-    </blockquote>
-    <blockquote>
-      “Attention to detail and proactive problem-solving...”<br>
-      <cite>– Jainapally Kalyani</cite>
-    </blockquote>
-    <blockquote>
-      “Brought agile maturity and QA leadership to our POD.”<br>
-      <cite>– Sonia Bunch, AstraZeneca</cite>
-    </blockquote>
+    <div class="testimonial">
+      <p>"Vamsi is a highly talented professional and exceptionally dedicated to the tasks he needs to deliver..."</p>
+      <small>- Mihai Milea, Digital Strategy Manager</small>
+    </div>
+    <div class="testimonial">
+      <p>"His data analytics skills, problem-solving mindset, and leadership qualities make him an invaluable asset..."</p>
+      <small>- Prakhar Dikshit, Salesforce CDP Specialist</small>
+    </div>
+    <div class="testimonial">
+      <p>"Vamsi’s attention to detail, proactive problem-solving, and dedication set a high standard..."</p>
+      <small>- Jainapally Kalyani, QA Lead</small>
+    </div>
   </section>
 
-  <section id="publications" class="section">
+  <section id="publications">
     <h2>Publications</h2>
-    <p><strong>WhatsApp Encryption - A Research</strong><br>
-    Published in IJRTE, ISSN: 2277-3878, Vol. 8, Issue 2S3, July 2019<br>
-    <a href="https://www.ijrte.org/wp-content/uploads/papers/v8i2S3/B10930782S319.pdf" target="_blank">Read Paper</a></p>
+    <p><strong>WhatsApp Encryption - A Research</strong><br/>
+    Published in: International Journal of Recent Technology and Engineering (IJRTE)<br/>
+    <a href="https://www.ijrte.org/wp-content/uploads/papers/v8i2S3/B10930782S319.pdf" target="_blank">Read Publication</a></p>
   </section>
 
-  <section id="contact" class="section">
+  <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:vamsi.krapa@gmail.com">vamsi.krapa@gmail.com</a></p>
-    <p>Phone: <a href="tel:+33744972457">+33 7 44 97 24 57</a></p>
+    <p>Phone: +33 7 44 97 24 57</p>
     <p>LinkedIn: <a href="https://linkedin.com/in/vamsikrapa" target="_blank">linkedin.com/in/vamsikrapa</a></p>
   </section>
 
-  <footer class="footer">
-    <p>Designed and built by Vamsi Krapa. All rights reserved.</p>
-    <a href="#home" id="back-to-top">↑ Back to Top</a>
+  <footer>
+    Designed and built by Vamsi Krapa. All rights reserved.<br/>
+    <a href="#home">↑ Back to Top</a>
   </footer>
 </body>
 </html>
