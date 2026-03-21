@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head><title>Redirecting...</title></head>
+<body>
+    <script>
+        const LINKEDIN_URL = "https://www.linkedin.com/in/vamsikrapa/";
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzxKTOyvqSKd0RZDAei_BNhOOlnZLCTsEwQlOZXDnvkwI0ojUqhpjrihzNjvEpSe6SS/exec"; 
+        const TIMEOUT_MS = 1500;
+
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // Grab all parameters from your custom link
+        const data = {
+            co:  urlParams.get('co')  || 'Not Specified',
+            src: urlParams.get('src') || 'Direct',
+            ver: urlParams.get('ver') || 'Standard',
+            v1:  urlParams.get('v1')  || '',
+            v2:  urlParams.get('v2')  || '',
+            v3:  urlParams.get('v3')  || '',
+            v4:  urlParams.get('v4')  || '',
+            v5:  urlParams.get('v5')  || '',
+            device: navigator.userAgent
+        };
+
+        let redirected = false;
+        function goToLinkedIn() {
+            if (!redirected) {
+                redirected = true;
+                window.location.href = LINKEDIN_URL;
+            }
+        }
+
+        setTimeout(goToLinkedIn, TIMEOUT_MS);
+
+        fetch('https://ipapi.co/json/')
+            .then(res => res.json())
+            .then(loc => {
+                const locInfo = `${loc.city}, ${loc.region}, ${loc.country_name} (IP: ${loc.ip})`;
+                sendToGoogle(locInfo);
+            })
+            .catch(() => sendToGoogle("Location Blocked"))
+            .finally(() => goToLinkedIn());
+
+        function sendToGoogle(location) {
+            // This builds the long URL for Google Script automatically
+            let finalUrl = `${SCRIPT_URL}?loc=${encodeURIComponent(location)}`;
+            for (let key in data) {
+                finalUrl += `&${key}=${encodeURIComponent(data[key])}`;
+            }
+            fetch(finalUrl, { mode: 'no-cors' });
+        }
+    </script>
+    <div style="text-align: center; font-family: Arial; margin-top: 50px;">
+        <p>Redirecting to Profile...</p>
+    </div>
+</body>
+</html>
