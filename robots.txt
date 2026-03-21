@@ -56,62 +56,65 @@ Allow: /
 
 
 # =============================================================================
-# SECTION 2 — AI TRAINING & INDEXING CRAWLERS
-# These bots are used by AI companies to scrape content for LLM training
-# datasets or AI-enhanced search features. Blocking these prevents your
-# content from being used as training data without explicit consent.
+# SECTION 2 — AI SEARCH & INDEXING CRAWLERS
+# This is a personal portfolio — maximum AI visibility is the goal.
+# Allowing these bots means the portfolio can surface in ChatGPT, Perplexity,
+# Gemini, Claude, and other AI-powered search tools when recruiters search
+# for skills, name, or role keywords.
 # =============================================================================
 
-# --- BLOCKED: OpenAI ---
+# --- ALLOWED: OpenAI (ChatGPT search & browsing) ---
 User-agent: GPTBot
-Disallow: /
+Allow: /
 
 User-agent: ChatGPT-User
-Disallow: /
+Allow: /
 
 User-agent: OAI-SearchBot
-Disallow: /
+Allow: /
 
-# --- BLOCKED: Anthropic ---
+# --- ALLOWED: Anthropic (Claude AI) ---
 User-agent: ClaudeBot
-Disallow: /
+Allow: /
 
 User-agent: Anthropic-AI
-Disallow: /
+Allow: /
 
 User-agent: anthropic-ai
-Disallow: /
+Allow: /
 
-# --- BLOCKED: Google AI ---
-# Blocks Gemini/AI Overviews training. Does NOT affect normal Googlebot indexing.
+# --- ALLOWED: Google AI (Gemini + AI Overviews) ---
+# Separate from Googlebot — this controls AI feature visibility specifically.
 User-agent: Google-Extended
-Disallow: /
+Allow: /
 
-# --- BLOCKED: Apple ---
+# --- ALLOWED: Apple Intelligence ---
 User-agent: Applebot-Extended
-Disallow: /
+Allow: /
 
-# --- BLOCKED: Meta ---
+# --- ALLOWED: Meta AI ---
 User-agent: FacebookBot
-Disallow: /
+Allow: /
 
-# --- BLOCKED: Amazon ---
+# --- ALLOWED: Amazon Alexa ---
 User-agent: Amazonbot
-Disallow: /
+Allow: /
 
-# --- BLOCKED: Perplexity AI ---
+# --- ALLOWED: Perplexity AI ---
 User-agent: PerplexityBot
-Disallow: /
+Allow: /
 
-# --- BLOCKED: Cohere ---
+# --- ALLOWED: Cohere ---
 User-agent: cohere-ai
-Disallow: /
+Allow: /
 
-# --- BLOCKED: Bytedance ---
+# --- ALLOWED: Bytedance ---
 User-agent: Bytespider
-Disallow: /
+Allow: /
 
 # --- BLOCKED: Common Crawl ---
+# Bulk scraper with no direct user-facing AI search benefit.
+# Used as raw training data dumps — no visibility upside for a portfolio.
 User-agent: CCBot
 Disallow: /
 
