@@ -1,0 +1,160 @@
+# =============================================================================
+# robots.txt — Vamsi Krapa Personal Website (vamsikrapa.github.io)
+# Last Updated: 2026-03-21
+# Reference: https://www.robotstxt.org/robotstxt.html
+# =============================================================================
+
+
+# =============================================================================
+# SECTION 1 — LEGACY SEARCH ENGINE CRAWLERS
+# Standard web search bots. Full access granted to all public content.
+# =============================================================================
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 5
+
+User-agent: Yahoo Slurp
+Allow: /
+Crawl-delay: 5
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 3
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 10
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 5
+
+User-agent: Sogou Spider
+Allow: /
+Crawl-delay: 10
+
+User-agent: Exabot
+Allow: /
+Crawl-delay: 5
+
+User-agent: facebot
+Allow: /
+
+User-agent: ia_archiver
+Allow: /
+
+
+# =============================================================================
+# SECTION 2 — AI TRAINING & INDEXING CRAWLERS
+# These bots are used by AI companies to scrape content for LLM training
+# datasets or AI-enhanced search features. Blocking these prevents your
+# content from being used as training data without explicit consent.
+# =============================================================================
+
+# --- BLOCKED: OpenAI ---
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: OAI-SearchBot
+Disallow: /
+
+# --- BLOCKED: Anthropic ---
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Anthropic-AI
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+# --- BLOCKED: Google AI ---
+# Blocks Gemini/AI Overviews training. Does NOT affect normal Googlebot indexing.
+User-agent: Google-Extended
+Disallow: /
+
+# --- BLOCKED: Apple ---
+User-agent: Applebot-Extended
+Disallow: /
+
+# --- BLOCKED: Meta ---
+User-agent: FacebookBot
+Disallow: /
+
+# --- BLOCKED: Amazon ---
+User-agent: Amazonbot
+Disallow: /
+
+# --- BLOCKED: Perplexity AI ---
+User-agent: PerplexityBot
+Disallow: /
+
+# --- BLOCKED: Cohere ---
+User-agent: cohere-ai
+Disallow: /
+
+# --- BLOCKED: Bytedance ---
+User-agent: Bytespider
+Disallow: /
+
+# --- BLOCKED: Common Crawl ---
+User-agent: CCBot
+Disallow: /
+
+
+# =============================================================================
+# SECTION 3 — GLOBAL FALLBACK RULE
+# Catch-all for all crawlers not explicitly named above.
+# =============================================================================
+
+User-agent: *
+Allow: /
+
+# --- Sensitive & Admin Directories ---
+Disallow: /admin/
+Disallow: /private/
+Disallow: /cgi-bin/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-login.php
+Disallow: /.env
+Disallow: /.git/
+Disallow: /config/
+Disallow: /logs/
+Disallow: /tmp/
+Disallow: /backup/
+Disallow: /uploads/private/
+
+# --- Node/Build Artifacts ---
+Disallow: /node_modules/
+Disallow: /.well-known/
+Disallow: /vendor/
+
+# --- Duplicate Content via Query Strings ---
+Disallow: /*?*utm_source=
+Disallow: /*?*utm_medium=
+Disallow: /*?*session_id=
+Disallow: /*?*ref=
+
+Crawl-delay: 10
+
+
+# =============================================================================
+# SECTION 4 — SITEMAP
+# =============================================================================
+
+Sitemap: https://vamsikrapa.github.io/sitemap.xml
