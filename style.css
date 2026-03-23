@@ -347,7 +347,16 @@ img {
   border-color: rgba(255, 255, 255, 0.3);
   transform: translateY(-2px);
 }
-
+.btn-download {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(255,255,255,0.18), 0 0 24px rgba(108, 99, 255, 0.28);
+  animation: sparkleGlow 1.8s ease-in-out infinite alternate;
+}
+@keyframes sparkleGlow {
+  from { box-shadow: 0 0 12px rgba(255,255,255,0.18), 0 0 24px rgba(108, 99, 255, 0.28); }
+  to { box-shadow: 0 0 18px rgba(255,255,255,0.35), 0 0 34px rgba(108, 99, 255, 0.45); }
+}
 /* Scroll Indicator */
 .scroll-indicator {
   position: absolute;
