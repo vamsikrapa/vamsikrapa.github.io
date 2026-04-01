@@ -421,6 +421,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // ===========================
+  // Mini Tetris Canvas (Vibe Coded section)
+  // ===========================
+  const miniTetrisCanvas = document.getElementById('miniTetris');
+  if (miniTetrisCanvas) {
+    drawMiniTetris(miniTetrisCanvas);
+
+    const tetrisOverlay = miniTetrisCanvas.closest('.vibe-game-preview').querySelector('.vibe-game-overlay');
+    if (tetrisOverlay) {
+      tetrisOverlay.addEventListener('click', () => {
+        window.location.href = 'games/tetris.html';
+      });
+    }
+  }
+
   // Initial calls
   handleScroll();
 });
@@ -581,6 +596,148 @@ function drawMiniTrack(canvas) {
 
   // Start car animation
   animateCar();
+}
+
+// ===========================
+// Mini Tetris Preview Drawing
+// ===========================
+function drawMiniTetris(canvas) {
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width;
+  const H = canvas.height;
+
+  const COLS = 10;
+  const ROWS = 14;
+  const BS = Math.min(Math.floor(W / (COLS + 2)), Math.floor(H / (ROWS + 2)));
+  const offX = Math.floor((W - COLS * BS) / 2);
+  const offY = Math.floor((H - ROWS * BS) / 2);
+
+  const COLORS = [
+    null,
+    '#00d2ff', '#6c63ff', '#ff9f43', '#ffd32a',
+    '#32ff7e', '#a855f7', '#ff4757'
+  ];
+
+  const SHAPES = [
+    [],
+    [[0,0,0,0],[1,1,1,1],[0,0,0,0],[0,0,0,0]],
+    [[2,0,0],[2,2,2],[0,0,0]],
+    [[0,0,3],[3,3,3],[0,0,0]],
+    [[4,4],[4,4]],
+    [[0,5,5],[5,5,0],[0,0,0]],
+    [[0,6,0],[6,6,6],[0,0,0]],
+    [[7,7,0],[0,7,7],[0,0,0]],
+  ];
+
+  // Pre-built board state for aesthetic preview
+  const previewBoard = [
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,5,5,0,0,0,0],
+    [0,0,0,5,5,0,0,0,0,3],
+    [0,2,0,0,6,0,0,0,3,3],
+    [1,2,2,6,6,6,4,4,3,7],
+    [1,1,2,5,5,1,4,4,7,7],
+  ];
+
+  // Falling piece animation
+  const fallingPieces = [
+    { shape: 6, col: 3, startRow: -3, speed: 0.015, targetRow: 8 },
+    { shape: 1, col: 0, startRow: -4, speed: 0.012, targetRow: 6, delay: 3000 },
+    { shape: 4, col: 7, startRow: -3, speed: 0.018, targetRow: 7, delay: 6000 },
+  ];
+
+  let animStart = null;
+  let activePiece = 0;
+  let pieceStartTime = 0;
+
+  function drawBlock(x, y, colorIdx) {
+    const color = COLORS[colorIdx];
+    if (!color) return;
+    const px = offX + x * BS;
+    const py = offY + y * BS;
+    ctx.fillStyle = color;
+    ctx.fillRect(px + 1, py + 1, BS - 2, BS - 2);
+    ctx.fillStyle = 'rgba(255,255,255,0.12)';
+    ctx.fillRect(px + 1, py + 1, BS - 2, 3);
+    ctx.fillRect(px + 1, py + 1, 3, BS - 2);
+  }
+
+  function drawFrame(timestamp) {
+    if (!animStart) { animStart = timestamp; pieceStartTime = timestamp; }
+
+    ctx.fillStyle = '#080818';
+    ctx.fillRect(0, 0, W, H);
+
+    // Grid lines
+    ctx.strokeStyle = 'rgba(255,255,255,0.025)';
+    ctx.lineWidth = 1;
+    for (let c = 0; c <= COLS; c++) {
+      ctx.beginPath();
+      ctx.moveTo(offX + c * BS, offY);
+      ctx.lineTo(offX + c * BS, offY + ROWS * BS);
+      ctx.stroke();
+    }
+    for (let r = 0; r <= ROWS; r++) {
+      ctx.beginPath();
+      ctx.moveTo(offX, offY + r * BS);
+      ctx.lineTo(offX + COLS * BS, offY + r * BS);
+      ctx.stroke();
+    }
+
+    // Board border
+    ctx.strokeStyle = 'rgba(108, 99, 255, 0.2)';
+    ctx.lineWidth = 1.5;
+    ctx.strokeRect(offX - 1, offY - 1, COLS * BS + 2, ROWS * BS + 2);
+
+    // Static board blocks
+    for (let r = 0; r < ROWS; r++) {
+      for (let c = 0; c < COLS; c++) {
+        if (previewBoard[r][c]) {
+          drawBlock(c, r, previewBoard[r][c]);
+        }
+      }
+    }
+
+    // Falling piece
+    const fp = fallingPieces[activePiece];
+    const elapsed = timestamp - pieceStartTime;
+    const shape = SHAPES[fp.shape];
+    const progress = Math.min(1, elapsed * fp.speed * 0.06);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const currentRow = fp.startRow + (fp.targetRow - fp.startRow) * eased;
+
+    for (let r = 0; r < shape.length; r++) {
+      for (let c = 0; c < shape[r].length; c++) {
+        if (shape[r][c]) {
+          const drawY = currentRow + r;
+          if (drawY >= 0 && drawY < ROWS) {
+            drawBlock(fp.col + c, drawY, shape[r][c]);
+          }
+        }
+      }
+    }
+
+    // Cycle to next piece
+    if (progress >= 1) {
+      const nextDelay = fallingPieces[(activePiece + 1) % fallingPieces.length].delay || 0;
+      if (elapsed > (fp.targetRow - fp.startRow) / fp.speed / 0.06 + 1500) {
+        activePiece = (activePiece + 1) % fallingPieces.length;
+        pieceStartTime = timestamp;
+      }
+    }
+
+    requestAnimationFrame(drawFrame);
+  }
+
+  requestAnimationFrame(drawFrame);
 }
 
 function drawStaticTrack(ctx, W, H, trackPoints) {

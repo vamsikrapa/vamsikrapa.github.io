@@ -241,8 +241,9 @@
       <h2 class="section-title" data-reveal>Vibe Coded <span class="gradient-text">Projects</span></h2>
       <p class="section-desc" data-reveal>Things I build for fun — experiments, games, and creative side projects.</p>
 
-      <div class="vibe-showcase" data-reveal>
-        <div class="vibe-card">
+      <div class="vibe-showcase vibe-grid-2" data-reveal>
+        <!-- Card 1: 1-Minute Racer -->
+        <div class="vibe-card vibe-card-compact">
           <div class="vibe-card-visual">
             <div class="vibe-game-preview">
               <canvas id="miniTrack" width="400" height="280"></canvas>
@@ -257,12 +258,11 @@
           <div class="vibe-card-info">
             <div class="vibe-card-badge">HTML5 Canvas Game</div>
             <h3>1-Minute Racer</h3>
-            <p>A top-down circuit racer built entirely with vanilla JavaScript and HTML5 Canvas. Features Catmull-Rom spline track generation, physics-based driving with on/off-track grip mechanics, lap detection, and a 60-second challenge format.</p>
+            <p>A top-down circuit racer with Catmull-Rom spline track generation, physics-based driving with grip mechanics, and a 60-second challenge.</p>
             <div class="vibe-card-tech">
               <span>JavaScript</span>
               <span>HTML5 Canvas</span>
               <span>Game Physics</span>
-              <span>Spline Math</span>
             </div>
             <div class="vibe-card-controls">
               <div class="control-key">
@@ -281,10 +281,46 @@
             <a href="games/racing.html" class="btn btn-primary vibe-play-link">Launch Game <span class="arrow">&rarr;</span></a>
           </div>
         </div>
-      </div>
 
-      <div class="vibe-coming-soon" data-reveal data-delay="200">
-        <p>More experiments coming soon...</p>
+        <!-- Card 2: Tetris -->
+        <div class="vibe-card vibe-card-compact">
+          <div class="vibe-card-visual">
+            <div class="vibe-game-preview">
+              <canvas id="miniTetris" width="400" height="280"></canvas>
+              <div class="vibe-game-overlay">
+                <div class="vibe-play-btn">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+                <span>Play Now</span>
+              </div>
+            </div>
+          </div>
+          <div class="vibe-card-info">
+            <div class="vibe-card-badge">HTML5 Canvas Game</div>
+            <h3>Tetris</h3>
+            <p>Classic block-stacking puzzle with 7-bag randomizer, ghost piece preview, wall kicks, level progression, and full mobile touch controls.</p>
+            <div class="vibe-card-tech">
+              <span>JavaScript</span>
+              <span>HTML5 Canvas</span>
+              <span>Touch Controls</span>
+            </div>
+            <div class="vibe-card-controls">
+              <div class="control-key">
+                <kbd>&#8592; &#8594;</kbd>
+                <span>Move</span>
+              </div>
+              <div class="control-key">
+                <kbd>&#8593;</kbd>
+                <span>Rotate</span>
+              </div>
+              <div class="control-key">
+                <kbd>Space</kbd>
+                <span>Drop</span>
+              </div>
+            </div>
+            <a href="games/tetris.html" class="btn btn-primary vibe-play-link">Launch Game <span class="arrow">&rarr;</span></a>
+          </div>
+        </div>
       </div>
     </div>
   </section>

@@ -883,6 +883,12 @@ body { top: 0 !important; }
   margin-bottom: 40px;
 }
 
+.vibe-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
 .vibe-card {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -891,6 +897,10 @@ body { top: 0 !important; }
   border-radius: var(--radius-lg);
   overflow: hidden;
   transition: var(--transition);
+}
+
+.vibe-card-compact {
+  grid-template-columns: 1fr;
 }
 
 .vibe-card:hover {
@@ -964,6 +974,22 @@ body { top: 0 !important; }
   color: white;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+}
+
+.vibe-card-compact .vibe-card-visual {
+  min-height: 220px;
+}
+
+.vibe-card-compact .vibe-card-info {
+  padding: 28px;
+}
+
+.vibe-card-compact .vibe-card-info h3 {
+  font-size: 1.4rem;
+}
+
+.vibe-card-compact .vibe-card-info > p {
+  font-size: 0.82rem;
 }
 
 .vibe-card-info {
@@ -1066,15 +1092,9 @@ body { top: 0 !important; }
   transform: translateX(4px);
 }
 
-.vibe-coming-soon {
-  text-align: center;
-  padding: 40px;
-}
-
-.vibe-coming-soon p {
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  font-style: italic;
+/* Mini Tetris preview canvas */
+#miniTetris {
+  image-rendering: pixelated;
 }
 
 /* ===========================
@@ -1508,12 +1528,25 @@ footer p {
     grid-template-columns: 1fr 1fr;
   }
 
+  .vibe-grid-2 {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
   .vibe-card {
     grid-template-columns: 1fr;
   }
 
-  .vibe-card-visual {
+  .vibe-card-compact {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .vibe-card-compact .vibe-card-visual {
     min-height: 260px;
+  }
+
+  .vibe-card-compact .vibe-card-info {
+    padding: 32px;
   }
 
   .vibe-game-overlay {
@@ -1593,6 +1626,14 @@ footer p {
 
   .vibe-card-info {
     padding: 32px;
+  }
+
+  .vibe-card-compact {
+    grid-template-columns: 1fr;
+  }
+
+  .vibe-card-compact .vibe-card-info {
+    padding: 28px;
   }
 }
 
